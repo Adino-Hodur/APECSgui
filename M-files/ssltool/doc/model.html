@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SSLTool Model Creation</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	color: #000;
+}
+body {
+	background-color: #404342;
+}
+.HeaderI {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 24pt;
+	color: #984808;
+}
+.HeaderIIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #000;
+	text-decoration: underline;
+}
+.HeaderIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12pt;
+	color: #984808;
+}
+.HeaderII {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #984808;
+}
+.MatlabString {
+	color: #8000FF;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 11pt;
+}
+.MatlabCode {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+}
+.MatlabDim {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+	color: #093;
+}
+-->
+</style></head>
+
+<body>
+<table width="840" border="0" align="center" cellpadding="2" cellspacing="0">
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" align="left" valign="top" bgcolor="#FAF9F6"><p class="HeaderI"> How to Make a Head Model</p>
+      <p><span class="HeaderIa">SSLTool: A Matlab toolbox for EEG surface Laplacian</span></p>
+<p><a href="index.html">Home</a> | <a href="http://sourceforge.net/projects/ssltool/files/" >Download</a> | <a href="screen.html" title="Screenshots" >Screenshots</a> | <a href="http://sourceforge.net/projects/ssltool/" >Project detail</a></p>
+<p>&nbsp;</p>
+<p>When you click the &quot;Make Model&quot; button on SSLTool main gui, a step-by-step guide is brought up to help you build your own head models. </p>
+<p>&nbsp;</p>
+<p class="HeaderIIa">STEP 1: Import and align a head mesh.</p>
+<p>The first step to create a new model is to import a triangular surface mesh of the head.  SSLTool itself does not provide any mesh creation functionality, so you may need to  use some third party software. For instance, the default model using in SSLTool was created using Brainvoyager. Another free alternative is to use the FSL tools.</p>
+<p>By default SSLTool supports 3 types of imports: an .OFF mesh file, a .SRF Brayvoyager mesh file and a <a href="format.html#HEAD">workspace structure variable</a> (with fields <span class="MatlabString">Vertex</span> and <span class="MatlabString">Face</span>). Note that inorder to import .SRF files you need to install BVQXTools Matlab toolbox first (see <a href="faq.html">FAQ</a> for details).</p>
+<p>To help you practice, an example OFF head file is included in the data folder. Import the <span class="MatlabString">SSL_HEAD_EXAMPLE.off</span> file now.</p>
+<p>Suppose now you have the head mesh ready, the next step is to get it aligned to be compatible with SSLTool's internal coordinate frame. This step is crucial in that upon completion it guarantees  SSLTool algorithms to work in the correct domain. The alignment user interface looks like this:</p>
+<p><img src="fig/ss31.jpg" width="390" height="1273" alt="sslaligntool interface" /></p>
+<p>&nbsp;</p>
+<p>Here the <strong>BLUE</strong> mesh is a default reference mesh, and the <strong>RED</strong> (target) mesh is the one imported by the user. The ui controls the rigid transformation of the red mesh. The goal is to manually align the red to the blue as close as possible. </p>
+<p>Note that the reference blue mesh is in a slightly &quot;nodded&quot; position, such that the <a href="http://en.wikipedia.org/wiki/Nasion" target="_blank">nasion</a> point is at about the same level of <a href="http://en.wikipedia.org/wiki/Inion" target="_blank">inion</a>. This position  maximizes the viewable scalp area when showing topographic plots on overhead views.</p>
+<p>If the target and reference are in very different positions, try to use the &quot;Center to Origin&quot; as well as &quot;Auto Scale&quot; to help precise alignment.</p>
+<p><img src="fig/ss32.png" width="237" height="275" alt="center" /></p>
+<p>The above image showshow it looks like after clicking &quot;Center to Origin&quot; and &quot;Auto Scale&quot;;</p>
+<p>&nbsp;</p>
+<p><img src="fig/ss33.png" width="245" height="275" alt="final" /></p>
+<p>And the final alignment should look something like the above image.</p>
+<p>&nbsp;</p>
+<p class="HeaderIIa">STEP 2: Import and align electrode coordinates.</p>
+<p>You can import form <a href="format.html#ELECFILE">a text file,</a> or <a href="format.html#ELEC">a workspace variable</a>. For this tutorial, import the <span class="MatlabString">SSL_ELECTRODE_EXAMPLE.txt</span> in the data folder. </p>
+<p><img src="fig/ss34.png" width="235" height="273" alt="electrode import" /></p>
+<p>The imported electrodes looks tiny. Click &quot;Auto Scale&quot; to fix this.</p>
+<p>&nbsp;</p>
+<p><img src="fig/ss36.png" alt="align" width="246" height="265" /></p>
+<p>With some works, the final alignment looks like the above image. <br />
+  Note that the cardinal landmarks are shown in green while ordinary electrodes in red. Use these cardinal points as references to get an accurate alignment.</p>
+<p>Before hitting &quot;Done&quot; you can choose to perform an automatic &quot;Snap to mesh&quot; process so that every electrodes resides precisely on the head mesh.</p>
+<p><img src="fig/ss37.png" width="248" height="270" alt="snap" /></p>
+<p>The electrodes are now snapped to mesh.</p>
+<p>&nbsp; </p>
+<p class="HeaderIIa">STEP 3: Save the model.</p>
+<p>The default save file is <span class="MatlabString">SSL_MODEL_CUSTOM.mat</span>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p></td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="40" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

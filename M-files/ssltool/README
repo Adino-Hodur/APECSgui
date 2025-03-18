@@ -1,0 +1,34 @@
+SSLTool: a Matlab toolbox for EEG surface Laplacian and topography
+
+Siyi Deng, Human Neuroscience Laboratory, UC Irvine.
+sdeng@uci.edu
+
+
+SSLTool is an open source Matlab based toolbox for bioelectromagnetic data 
+(EEG/MEG) visualization, surface Laplacian calculation and modeling. 
+It can compute surface Laplacian on realistic head surfaces given by 
+a triangular mesh. It has a friendly GUI.
+
+
+Please refer to doc/index.html for full descriptions.
+
+
+To Use:
+- Put the folder on Matlab search path.
+- Type "ssltool" without the quotation mark.
+- If you are using it for the first time, you probably need to run 
+  "sslmakeall" to compile some binary files.
+  
+
+A Quick Tutorial:
+- Run ssltool.
+- Click "Load Model"; click open to load default model.
+- Click "Load Data"; then click ok, then click open to load default data.
+- Goto Plot & Movie tab, click the play movie button; 
+- Drag mouse on the canvas to rotate.
+- Play around with Plot & Movie tab and Graphic tab.
+- Click "Export" at the Main tab.
+
+
+
+

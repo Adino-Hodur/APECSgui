@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SSLTool File format and data structure</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	color: #000;
+}
+body {
+	background-color: #404342;
+}
+.HeaderI {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 24pt;
+	color: #984808;
+}
+.HeaderIIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #000;
+	text-decoration: underline;
+}
+.HeaderIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12pt;
+	color: #984808;
+}
+.HeaderII {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #984808;
+}
+.MatlabString {
+	color: #8000FF;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 11pt;
+}
+.MatlabCode {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+}
+.MatlabDim {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+	color: #093;
+}
+-->
+</style></head>
+
+<body>
+<table width="840" border="0" align="center" cellpadding="2" cellspacing="0">
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" align="left" valign="top" bgcolor="#FAF9F6"><p class="HeaderI"> FAQs</p>
+      <p><span class="HeaderIa">SSLTool: A Matlab toolbox for EEG surface Laplacian</span></p>
+<p><a href="index.html">Home</a> | <a href="http://sourceforge.net/projects/ssltool/files/" >Download</a> | <a href="screen.html" title="Screenshots" >Screenshots</a> | <a href="http://sourceforge.net/projects/ssltool/" >Project detail</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="HeaderII">Q: Can I run SSLTool on my operating system?</p>
+<p>A: SSLTool is written primarily in native Matlab code, thus we expect it to be quite platform-independent. However there are still a few MEX routines written in c. Pre-compiled mex files for 64-bit Windows and 64-bit Linux x86 systems are included in the package. If your operating system is not one of above, please run <span class="MatlabString">sslmakeall</span> after installation. You might also need to <a href="http://www.mathworks.com/help/techdoc/matlab_external/f23674.html" title="mex configuration" target="_blank">configure the compiler for Matlab</a> before you can run it.</p>
+<p>&nbsp;</p>
+<p class="HeaderII">Q: I cannot import Brainvoyager .srf mesh files, the option is grayed out.</p>
+<p>A: You need to install <span class="MatlabString">BVQXTools</span>, the Matlab toolbox from Brain Innovation. Search <a href="http://www.brainvoyager.com/" title="bv" target="_blank">their website</a> for it. After installation, the import srf file option will be enabled.</p>
+<p>&nbsp;</p>
+<p class="HeaderII">Q: I imported a mesh / electrode coordiantes, but it seems like nothing  happened.</p>
+<p>A: Probably you the mesh is on a very different scale than the default mesh. Use the &quot;Auto-scaling&quot; button to try scale it first.</p>
+<p>&nbsp;</p>
+<p class="HeaderII">Q: It keeps telling me my mesh is empty or invalid.</p>
+<p>A: There are a couple of reasons that your mesh get rejected. Most common reasons are that your mesh is too dense (currently we only allow up to 3000 vertices and 6000 triangles), your mesh is not closed, or your mesh format is wrong.</p>
+<p>A side note: SSLTool is primarily a SSL calculation and visualization toolbox, thus it has very limited mesh processing capablilities. Generally you should use other specific mesh processing softwares to generate a mesh of good quality. It is desireable to have meshes with uniform face orientation, regular valence and evenly distributed edge length or face area.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p></td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="40" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SSLTool Main</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	color: #000;
+}
+body {
+	background-color: #404342;
+}
+.HeaderI {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 24pt;
+	color: #984808;
+}
+.HeaderIIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #000;
+	text-decoration: underline;
+}
+.HeaderIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12pt;
+	color: #984808;
+}
+.HeaderII {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #984808;
+}
+-->
+</style></head>
+
+<body>
+<table width="840" border="0" align="center" cellpadding="2" cellspacing="0">
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" align="left" valign="top" bgcolor="#FAF9F6"><p><span class="HeaderI">SSLTool</span></p>
+      <p><span class="HeaderIa">A Matlab toolbox for EEG surface Laplacian</span></p>
+<p><a href="index.html">Home</a> | <a href="http://sourceforge.net/projects/ssltool/files/" >Download</a> | <a href="screen.html" title="Screenshots" >Screenshots</a> | <a href="http://sourceforge.net/projects/ssltool/" >Project detail</a></p>
+<p><span class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal">SSLTool is a free Matlab toolbox for bioelectromagnetic data (EEG/MEG)
+  visualization, <a href="history.html" title="A Brief History of EEG Surface Laplacian by Prof. P. L. Nunez">surface Laplacian</a> calculation and modeling.&nbsp; SSL stands
+  for Spline Surface Laplacian.&nbsp; SSLTool provides a streamlined GUI for
+  model creation, data IO and cleanup, as well as SSL calculation and
+  visualization.&nbsp;</span></p>
+<p><img src="fig/ss02.png" width="308" height="322" alt="Graphics GUI" /> <img src="fig/ss01.png" width="321" height="367" alt="Plot Canvas" /></p>
+<p>  A screenshot of SSLTool main Graphics Gui and Plot Canvas.</p>
+<p>&nbsp;</p>
+<p class="HeaderIIa">Features</p>
+    <ul>
+      <li><strong>Friendly user interface</strong>.  Most functionalities of SSLTool can be accessed from the main GUI, which also provides sufficient user control to interactively visualize everything in real time.<br />
+        <br />
+      </li>
+      <li><strong>SSL-Geo</strong>.  The new SSL-Geo algorithm can compute spline surface Laplacians directly on triangular meshes, gives better result than spherical algorithms. Both SSL-Geo and SSL-Sph are presented in this package in a unified fashion.<br />
+        <strong><br />
+        </strong></li>
+      <li><strong>Fast</strong>.  The core functions of SSLTool are well optimized and plotting the geometrically accurate surface Laplacian (SSL-Geo) on a full head mesh can be as fast as plotting the raw data.<br />
+        <strong><br />
+        </strong></li>
+        
+      <li><strong>Modularized and flexible</strong>.  The different modules of SSLTool can be called separately as functions or in command line, for example SSLALIGNTOOL can be used as a general purpose mesh co-registration tool. </li>
+      </ul>
+    <p>&nbsp;</p>
+<p class="HeaderIIa">Limitations</p>
+    <ul>
+      <li>Currently, the model making module of SSLTool only support triangular meshes up to 3000 vertices or 6000 triangles. This is due to the consideration of memory usage. Hopefully these restrictions will be lifted in the future.    </li>
+    </ul>
+    <ul>
+      <li>SSLTool itself has only very limited EEG/MEG data processing and mesh processing capabilities. It is designed primarily as a tool to facilitate spline surface Laplacian calculation. Use other software packages to do data processing tasks.    </li>
+    </ul>
+    <ul>
+      <li>SSLTool is developed on Matlab version R2010b, and has been tested on version R2009a and above. However due to a bug in Matlab Java engine, some java controls cannot display properly on version R2010a or earlier, and has been replaced by standard Matlab uicontrols (only minor aesthetic impacts). </li>
+    </ul>
+    <p>&nbsp;</p>
+    <p class="HeaderIIa">Installation</p>
+    <p>Installing SSLTool is as simple as unzipping the downloaded package into <a href="http://www.mathworks.com/help/techdoc/matlab_env/br7ppws-1.html" target="_blank">a path recognized by Matlab</a>.</p>
+    <p>You can also manually add it (temporarily) by locating the unzipped folder from <a href="http://www.mathworks.com/help/techdoc/matlab_env/br5rtt_.html#br5uzmu-1" target="_blank">Matlab current folder browser</a>, and right-click on it to choose 
+      &quot;Add to path &gt;&gt; selected folders and subfolders&quot;.</p>
+    <p>&nbsp;</p>
+    <p class="HeaderIIa">Documentation</p>
+    <ul>
+      <li><a href="tutorial.html">A quick tutorial.</a></li>
+      <li><a href="model.html">How to make a head model with SSLTool.</a></li>
+      <li><a href="format.html">File formats and data structures.</a></li>
+      <li><a href="faq.html">FAQs.</a></li>
+      <li><a href="history.html" title="A Brief History of the EEG Surface Laplacian">A Brief History of the EEG Surface Laplacain.</a></li>
+    </ul>
+    <p>&nbsp;</p>
+<p class="HeaderIIa">Software Developer </p>
+    <p>Siyi Deng, PhD <br />
+      Human Neuroscience Lab, University of California, Irvine </p>
+    <p>sdeng(at)uci.edu</p>
+    <p>&nbsp;</p>
+    <p class="HeaderIIa">Principal Investigator </p>
+    <p>Ramesh Srinivasan, PhD <br />
+      Human Neuroscience Lab, University of California, Irvine</p>
+    <p>&nbsp;</p>
+    <p class="HeaderIIa">BSD License</p>
+    <p>SSLTool is release under BSD License, See here for <a href="../LICENSE">the full license</a>.</p>
+    <p>&nbsp;</p>
+    <p>This software is provided “as is” and the University of California and its collaborators do <strong>NOT</strong> make any warranty!</p>
+    <p> This sofware was generated primarily with support of grants from  the National Institutes of Health (R01 MH68004).</p>
+    <p>&nbsp;</p>
+    <p><a href="http://www.uci.edu" target="_blank"><img src="fig/PeterLogo.png" alt="Peter" width="240" height="123" border="2" /></a><a href="http://hnl.ss.uci.edu" target="_blank"><img src="fig/HNLLogo.gif" alt="HNL" width="123" height="123" border="2" /></a></p></td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="40" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

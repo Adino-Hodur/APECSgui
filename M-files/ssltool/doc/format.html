@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SSLTool File format and data structure</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	color: #000;
+}
+body {
+	background-color: #404342;
+}
+.HeaderI {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 24pt;
+	color: #984808;
+}
+.HeaderIIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #000;
+	text-decoration: underline;
+}
+.HeaderIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12pt;
+	color: #984808;
+}
+.HeaderII {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #984808;
+}
+.MatlabString {
+	color: #8000FF;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 11pt;
+}
+.MatlabFunc {
+	font-family: "Courier New", Courier, monospace;
+	color: #993;
+	font-size: 11pt;
+}
+.MatlabCode {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+}
+.MatlabDim {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+	color: #093;
+}
+-->
+</style></head>
+
+<body>
+<table width="840" border="0" align="center" cellpadding="2" cellspacing="0">
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" align="left" valign="top" bgcolor="#FAF9F6"><p class="HeaderI"> File Formats and Data Structures</p>
+      <p><span class="HeaderIa">SSLTool: A Matlab toolbox for EEG surface Laplacian</span></p>
+<p><a href="index.html">Home</a> | <a href="http://sourceforge.net/projects/ssltool/files/" >Download</a> | <a href="screen.html" title="Screenshots" >Screenshots</a> | <a href="http://sourceforge.net/projects/ssltool/" >Project detail</a></p>
+<p>&nbsp;</p>
+<p>SSLTool  uses <a href="http://www.mathworks.com/help/techdoc/matlab_prog/br04bw6-38.html" target="_blank">Matlab structure data class</a> extensively and uses <a href="http://www.mathworks.com/help/techdoc/import_export/braidzi-1.html" target="_blank">.mat file</a> to store information.</p>
+<p>&nbsp;</p>
+<p class="HeaderII">File Formats</p>
+<p class="HeaderIIa" id="MODEL">Model</p>
+<p>The model file is a Matlab .mat file containing two variables: </p>
+<ul>
+  <li><span class="MatlabString">Head</span></li>
+  <li><span class="MatlabString">Electrode</span></li>
+</ul>
+<p>See following sections for details. Also see <span class="MatlabFunc">SSL_MODEL_DEFAULT.mat</span> file in data directory for an example.</p>
+<p class="HeaderIIa" id="ELECFILE">Electrode</p>
+<p>Electrode info can be stored in a text file. The file must have 4 columns, either tab or space delimited, with the first column giving the electrode label (a string, cannot be a pure number, thus <span class="MatlabString">A01</span> is legitimate but <span class="MatlabString">001</span> is not) and the next three depicting the X, Y and Z spatial coordinates.</p>
+<p><a href="format.html#Fiducial">Fiducial landmark points</a> may also be included in this file, SSLTool will automatically recognize channels with label LPA, RPA, NAS and VER and extract these as the Fiducial points.</p>
+<p>See <span class="MatlabFunc">SSL_ELECTRODE_EXAMPLE.txt</span> for an example.</p>
+<p>&nbsp;</p>
+<p class="HeaderII">Data Structures</p>
+<p class="HeaderIIa" id="HEAD">Head</p>
+<p>The Head  structure is defined by two primary fields: </p>
+<ul>
+  <li> <span class="MatlabString">Head.Vertex</span> <br />
+    Size <span class="MatlabDim">[numOfVertices,3]</span> array of vertex coordinates, in 3D Euclidean space. </li>
+  <li><span class="MatlabString">Head.Face</span> <br />
+    Size <span class="MatlabDim">[numOfFaces,3]</span> array of triangulation indices into <span class="MatlabString">Head.Vertex</span>, index starts at 1. </li>
+</ul>
+<p>The following auxiliary fields are also automatically generated during mesh creation: </p>
+<ul>
+  <li> <span class="MatlabString">Head.VertexNormal</span><br />
+    Size <span class="MatlabDim">[numOfVertices,3]</span> array describing the unit surface normal vector at each vertex.  <br />
+    Computed with function <span class="MatlabFunc">SSLMESHVERTEXNORMAL</span>. </li>
+  <li><span class="MatlabString">Head.VertexNormalJacobian</span><br />
+    Size <span class="MatlabDim">[3,3, numOfVertices]</span> array of the Jacobian matrix at each vertex. <br />
+    Computed with function <span class="MatlabFunc">SSLMESHCURVATURE</span>. </li>
+</ul>
+<p class="HeaderIIa" id="ELEC">Electrode</p>
+<p>The Electrode data structure is defined by a primary field:</p>
+<ul>
+  <li><span class="MatlabString">Electrode.Coordinate</span><br />
+    Size <span class="MatlabDim">[numOfElectrodes,3]</span> array of coordinates, in 3D Euclidean space. </li>
+</ul>
+<p>and  optional fields:</p>
+<ul>
+  <li> <span class="MatlabString">Electrode.Label</span><br />
+    Size <span class="MatlabDim">[numOfElectrodes,1]</span> character cell array, giving the label for each electrode. This field can be omitted, in which case numerical labels from 1 to <span class="MatlabDim">numOfElectrodes</span> are created automatically.</li>
+</ul>
+<ul>
+  <li id="FIDUCIAL"><span class="MatlabString">Electrode.Fiducial</span><br />
+    Size
+      <span class="MatlabDim">[4,3]</span> array of the fiducial landmarks. These are usually the points that the coordinate digitization systems resort to for base frame setup. Row 1 through 4 specifies the coordinate of <span class="MatlabCode">LPA, RPA, NAS</span>, and <span class="MatlabCode">VER</span> points, in that order. These correspond to Left Pre-Auricular point, Right Pre-Auricular point, Nasian point and Vertex point. If some of these points are not available, the corresponding rows are <span class="MatlabString">NAN</span>ed.<br />
+    <br />
+  </li>
+</ul>
+<p class="HeaderIIa" id="DATA">Data</p>
+<p>The data structure has a primary field: </p>
+<ul>
+  <li>  <span class="MatlabString">D.Data</span><br />
+    Size <span class="MatlabDim">[numOfFrames,numOfChannels]</span> array, where <span class="MatlabDim">numOfChannels</span> should equal to <span class="MatlabDim">numOfElectrodes</span>.</li>
+</ul>
+<p>and an optional field:</p>
+<ul>
+  <li> <span class="MatlabString">D.ExcludeChannel</span><br />
+    A numeric array defining the indices of channels (electrodes) to be excluded from further usage. </li>
+</ul>
+<p>See <span class="MatlabFunc">SSL_DATA_DEFAULT.mat</span> file in data directory for an example. </p>
+<p>&nbsp;</p></td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="40" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

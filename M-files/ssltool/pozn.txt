@@ -1,0 +1,10 @@
+1) po ulozeni modelu sa nevytvori structura, preto to treba load do structury:
+> M = load('modelname') 
+
+2) model z Lenovych dat bol: dafault head model (mesh) 
+   elctordes: biosemi64.txt
+              - Rot Z:  90
+              - Shift Z: 22 
+              - Scale: 87
+              - Snap to Mesh
+                                             

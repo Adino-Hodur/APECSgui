@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SSLTool Quick Tutorial</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	color: #000;
+}
+body {
+	background-color: #404342;
+}
+.HeaderI {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 24pt;
+	color: #984808;
+}
+.HeaderIIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #000;
+	text-decoration: underline;
+}
+.HeaderIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12pt;
+	color: #984808;
+}
+.HeaderII {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #984808;
+}
+.MatlabString {
+	color: #8000FF;
+}
+.MatlabCode {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+}
+-->
+</style></head>
+
+<body>
+<table width="840" border="0" align="center" cellpadding="2" cellspacing="0">
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" align="left" valign="top" bgcolor="#FAF9F6"><p class="HeaderI"> Quick Tutorial</p>
+      <p><span class="HeaderIa">SSLTool: A Matlab toolbox for EEG surface Laplacian</span></p>
+<p><a href="index.html">Home</a> | <a href="http://sourceforge.net/projects/ssltool/files/" >Download</a> | <a href="screen.html" title="Screenshots" >Screenshots</a> | <a href="http://sourceforge.net/projects/ssltool/" >Project detail</a></p>
+<p>&nbsp;</p>
+<p class="HeaderII">Using the GUI</p>
+<p>The Main Gui of SSLTool is pretty much self-explainatory. </p>
+<p>After installation (which is nothing more than put the unzipped folder on Matlab search path), type &quot;ssltool&quot; without the quotation mark in Matlab command window, and the main Gui will pop up. </p>
+<p>Next, follow these steps:</p>
+<ul>
+  <li> Click &quot;Load Model&quot;; click open to load default model. </li>
+  <li> Click &quot;Load Data&quot;; then click ok, then click open to load default data. </li>
+  <li> Goto Plot &amp; Movie tab, click the play movie button; </li>
+  <li> Drag mouse on the canvas to rotate. </li>
+  <li> Play around with Plot &amp; Movie tab and Graphic tab. </li>
+  <li> Click &quot;Export&quot; at the Main tab.</li>
+  </ul>
+<p>&nbsp;</p>
+<p class="HeaderII">Using as Function</p>
+<p>SSLTool can also be used as standard functions in Matlab scripts. For example, type the following in Matlab command window:</p>
+<p class="MatlabCode">load(<span class="MatlabString">'SSL_DATA_DEFAULT'</span>);</p>
+<p class="MatlabCode">M = load(<span class="MatlabString">'SSL_MODEL_DEFAULT'</span>);</p>
+<p class="MatlabCode">X = ssltool(D,M)</p>
+<p>&nbsp;</p>
+<p>Use the Matlab help system  (e.g. help ssltool) for details.</p></td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="40" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

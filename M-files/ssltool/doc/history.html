@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SSLTool a brief history of the EEG surface Laplacian</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	color: #000;
+}
+body {
+	background-color: #404342;
+}
+.HeaderI {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 24pt;
+	color: #984808;
+}
+.HeaderIIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #000;
+	text-decoration: underline;
+}
+.HeaderIa {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12pt;
+	color: #984808;
+}
+.HeaderII {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14pt;
+	color: #984808;
+}
+.MatlabString {
+	color: #8000FF;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 11pt;
+}
+.MatlabCode {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+}
+.MatlabDim {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+	color: #093;
+}
+.TimesNewRoman {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12pt;
+}
+.TextWithEq {
+	line-height: 1.5;
+}
+-->
+</style></head>
+
+<body>
+<table width="840" border="0" align="center" cellpadding="2" cellspacing="0">
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="20" align="left" valign="top" bgcolor="#FAF9F6"><p class="HeaderI"> A Brief History of the EEG Surface Laplacian</p>
+      <p><span class="HeaderIa">Background and History, by Prof. Paul L. Nunez</span></p>
+<p><a href="index.html">Home</a> | <a href="http://sourceforge.net/projects/ssltool/files/" >Download</a> | <a href="screen.html" title="Screenshots" >Screenshots</a> | <a href="http://sourceforge.net/projects/ssltool/" >Project detail</a></p>
+<p>&nbsp;</p>
+
+
+<p class="HeaderIIa">A Brief History of the EEG Surface Laplacian</p>
+<p><a href="http://www.linkedin.com/in/paulnunez" title="Prof. P.L.Nunez" target="_blank">Prof. Paul L. Nunez</a></p>
+
+<p class="TextWithEq">The surface Laplacian of voltage <span style='position:relative;top:4.0pt'><img
+src="fig/eq01.gif" alt="PHI" width=20 height=16></span> recorded on
+a plane surface with coordinates <span style='position:relative;top:4.0pt'><img
+src="fig/eq03.gif" alt="(x,y)" width=38 height=20></span> is defined by the expression</p>
+
+<p class="TextWithEq"><span style='position:relative;left:40%'><img src="fig/eq02.gif" width=120 height=44></span></p>
+
+<p class="TextWithEq">Apparently, the first EEG surface Laplacian algorithm
+was implemented by Hjorth (1975) to improve spatial resolution and eliminate
+the influence of reference electrode distortions. No firm theoretical
+justification was provided by Hjorth at that time, but his approach seemed, superficially,
+to serve as a plausible extension of current source density (CSD) then popular
+with physiologists doing depth recordings in animal cortex. CSD consists of
+estimating second derivatives of recorded field potentials in a single cortical
+depth coordinate to reveal local synaptic current sources more sharply. Some
+neuroscientists then used the labels &quot;CSD&quot; and &quot;Laplacian&quot;
+interchangeably, failing to acknowledge important differences.</p>
+
+<p class="TextWithEq">The early absence of a clear theoretical justification
+probably delayed wider adoption of Laplacians by the EEG community and later
+led to misunderstandings. However, Katznelson and Nunez (1981) showed that EEG surface
+Laplacians provide estimates of local current flux through the skull into the
+scalp; this theoretical connection follows mainly from the high relative
+resistivity of skull tissue, which tends to focus current normal to local skull
+surface. This interpretation implies that Laplacians should be especially
+sensitive to dipole sources oriented normal to local skull, assuming
+approximately constant tissue resistivities over the surface. Still, the number
+of available EEG channels was limited to less than about 20 at that time; accuracy
+of Laplacian estimates was similarly limited. Initial enthusiasm for the
+Laplacian was muted by this critical technological barrier.</p>
+
+<p class="TextWithEq">In the early 1990s, several EEG scientists
+  criticized Laplacian methods for having only minimal theoretical justification
+  (van Dijk and Spekreijse 1992). In response, Nunez and Westdorp (1994), Srinivasan
+  et al (1996), Kramer and Szeri (2004), and Nunez and Srinivasan (2006) showed that
+  for high resistivity skulls, the surface Laplacian is related to the inner
+  skull <span style='position:relative;top:4.0pt'><img
+src="fig/eq04.gif" alt="PHI_i" width=20 height=16></span> potential
+  and outer skull <span style='position:relative;top:4.0pt'><img width=20
+height=16 src="fig/eq05.gif"></span> potential by the approximate relation</p>
+
+<p class="TextWithEq"><span style='position:relative;left:40%'><img
+src="fig/eq06.gif" alt="" width="120" height="20" /></span></p>
+
+<p class="TextWithEq">Here the constant <i>A</i> depends on local
+cortical, skull, and scalp thicknesses and resistivities. When cortical sources
+are localized as in the case of single dipoles or small dipole layers,
+potentials fall off rapidly between cortex (or dura surface) and scalp, that
+is, <span style='position:relative;top:4.0pt'><img width=64 height=16
+src="fig/eq07.gif"></span> and
+the surface Laplacian is approximately proportional to local cortical (or dura)
+potential. By contrast, when cortical sources form very large (perhaps &gt; 10
+cm diameter dipole layers), the inner and outer skull potentials have similar
+magnitudes so that scalp Laplacians are small. This interpretation then
+emphasizes that unprocessed scalp potentials and scalp Laplacians are
+complementary measures of cortical source behavior, sensitive to different scales
+of activity. EEG interpretations (source localization, functional connectivity,
+and so forth) can be substantially facilitated by employing both measures to
+the same data sets (Nunez and Srinivasan 2006). </p>
+
+<p class="TextWithEq">Still another set of studies compared cortical
+potential distributions predicted by the New Orleans surface Laplacian with
+inner projections based on a three-sphere model labeled Melbourne dura imaging
+(Nunez et al. 2001; Nunez and Srinivasan 2006). Typical correlations between
+these two independent estimates of cortical potential based on both genuine
+131-channel EEG and simulations with distributed sources in a three-sphere head
+model were in the 0.95 range, thereby adding additional support for the
+Laplacian. </p>
+
+<p class="TextWithEq">Hjorth's original work employed a very simple
+nearest-neighbor algorithm to estimate Laplacians. Such estimates were, for all
+algorithms, severely limited by sparse sampling density. Later, after EEG
+systems with many more channels became easily available, a French group developed
+substantially improved Laplacian algorithms based on fitting surface potential
+maps to either planar or spherical spline functions (Perrin et al., 1987,
+1989). These functions were then differentiated analytically to estimate scalp surface
+Laplacians. This spline Laplacian approach was later extended to include
+ellipsoidal (Law et al. 1993) and more realistic scalp surfaces (Babiloni et
+al. 1996). More recently, several additional algorithms have been developed to
+estimate Laplacians more accurately on realistic human heads imaged with MRI
+(recent work by Irvine group, 2011).&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<p class="TextWithEq">One important Laplacian application is to provide
+more accurate estimates of EEG coherence patterns, which provide important
+measures of functional segregation and integration between cortical regions;
+such measures vary substantially across cognitive tasks. Before the 1990s some
+EEG scientists and animal physiologists suspected that the observed high scalp
+coherence over large distances (&gt; 5 to 20 cm) did not reflect cortical
+source coherence, but resulted only from volume conduction. This view was based
+partly on the fast fall off of coherence (typically over less than 1 cm) recorded
+from animal cortex with mm scale electrodes. But, this volume conduction interpretation
+ignores the fact that high human scalp coherence is mostly confined to narrow
+frequency bands (typically the lower range of alpha frequencies), and volume
+conduction is essentially independent of frequency. This misunderstanding
+involved failure to appreciate that the dynamic variables that characterize
+complex systems are generally expected to be scale-sensitive (Nunez 1995, 2010;
+Nunez et al. 1997, 2001; Nunez and Srinivasan 2010; Sporns 2010). Thus,
+cortical coherence patterns estimated with mm scale (mesoscopic) cortical
+electrodes are not generally expected to mirror (macroscopic) scalp coherence
+between the same cortical regions. </p>
+
+<p class="TextWithEq">The issue of genuine large long-range scalp
+coherence seemed to be finally settled when alpha band Laplacian-based coherence
+estimates were often found to be large at 10 to 20 cm separations and showed
+large changes with cognitive tasks (Nunez 1995; Nunez et al. 2001). But, some
+scientists advanced still another objection, claiming that coherence estimates
+obtained from spline Laplacian algorithms produce erroneously high coherence
+estimates due to the global nature of spline fits (Biggins et al. 1991, 1992). This
+result was, however, shown to be based on faulty simulation methods; that is, bypassing
+head model simulations and simply submitting random numbers to the spline
+algorithm (Perrin et al. 1992; Nunez et al. 1994, 1997). It has been shown that
+the spline-Laplacian coherence estimates are typically conservative; that is,
+they tend to underestimate cortical source coherence by filtering out the very
+low spatial frequencies (Srinivasan et al. 1998; Nunez and Srinivasan 2006).
+Note also that large alpha band coherence at 10 to 20 cm scalp separations is
+easily obtained with (close) bipolar recordings and may be manipulated with
+cognitive tasks or eyes opening (Nunez 1995).</p>
+
+<p>&nbsp;</p>
+
+<p class="HeaderIIa">References</p>
+
+<p class="TimesNewRoman">Biggins CA, Fein G, Ratz J and Amir A. Artifactually
+high coherence results from using spherical spline computation of scalp current
+density. <i>Electroencephalography and Clinical Neurophysiol</i>ogy 79:
+413–419, 1991.</p>
+
+<p class="TimesNewRoman">Biggins CA, Ezekiel&nbsp; F and Fein G. Spline
+computation of scalp current density and coherence: a reply to Perrin. <i>Electroencephalography
+and Clinical Neurophysiol</i>ogy 83: 172–174, 1992.</p>
+
+<p class="TimesNewRoman">Hjorth, B. An on line transformation of EEG scalp
+potentials into orthogonal source derivations. <i>Electroencephalography and
+Clinical Neurophysiol</i>ogy 39: 526-530, 1975.</p>
+
+<p class="TimesNewRoman">Kramer&nbsp; MA and Szeri AJ. Quantitative
+approximations of cortical surface potential from EEG and ECoG measurements. <i>IEEE
+Transactions on Biomedical Engineering</i> 51: 1358-1356, 2004. </p>
+
+<p class="TimesNewRoman">Law SK,Nunez PL and Wijesinghe RS. High resolution
+EEG using spline generated surface Laplacians on spherical and ellipsoidal
+surfaces. <i>IEEE Transactions on Biomedical Engineering</i> 40: 145-152, 1993.
+</p>
+
+<p class="TimesNewRoman">Nunez PL. <i>Electric Fields of the Brain: The
+Neurophysics of EEG (1st Ed)</i>, Oxford University Press, New York, 1981.</p>
+
+<p class="TimesNewRoman">Nunez PL. <i>Neocortical Dynamics and Human EEG
+Rhythms,</i> New York: Oxford University Press, 1995.</p>
+
+<p class="TimesNewRoman">Nunez PL. <i>Brain, Mind, and the Structure of
+Reality</i>, New York: Oxford University Press, 2010.</p>
+
+<p class="TimesNewRoman">Nunez PL and Srinivasan R. <i>Electric Fields of the
+Brain: The Neurophysics of EEG</i> (<i>2<sup>nd</sup> Ed</i>), New York: Oxford
+University Press, 2006.</p>
+
+<p class="TimesNewRoman">Nunez PL and Srinivasan R. Scale and frequency
+chauvinism in brain dynamics: too much emphasis on gamma band oscillations. <i>Brain
+Structure and Function</i> 215: 67-71, </p>
+
+<p class="TimesNewRoman">Nunez PL, Silberstein RB, Cadiush PJ, Wijesinghe RS,
+Westdorp AF and Srinivasan R. A theoretical and experimental study of high resolution
+EEG based on surface Laplacians and cortical imaging. <i>Electroencephalography
+and Clinical Neurophysiol</i>ogy 90: 40–57, 1994. </p>
+
+<p class="TimesNewRoman">Nunez PL, Srinivasan R, Westdorp AF, Wijesinghe RS,
+Tucker DM, Silberstein RB, and Cadusch PJ. EEG coherency I: Statistics,
+reference electrode, volume conduction, Laplacians, cortical imaging, and
+interpretation at multiple scales. <i>Electroencephalography and Clinical
+Neurophysiol</i>ogy: 103: 516-527, 1997.&nbsp; </p>
+
+<p class="TimesNewRoman">Nunez PL, Silberstein RB, Carpentar MR, Srinivasan
+R, Wijesinghe RS, Tucker DM, Cadusch PJ and Wu X. EEG coherency II: Comparisons
+of multiple measures of EEG coherency differences between resting and cognitive
+states, <i>Electroencephalography and Clinical Neurophysiol</i>ogy: 110:
+469-486, 1999. &nbsp;</p>
+
+<p class="TimesNewRoman">Nunez PL, Wingeier BM and Silberstein RB.
+Spatial-temporal structures of human alpha rhythms: theory, micro-current
+sources, multiscale measurements, and global binding of local networks, <i>Human
+Brain Mapping</i> 13: 125-164, 2001.&nbsp; </p>
+
+<p class="TimesNewRoman">Perrin F. Comments on article by Biggens et al. <i>Electroencephalography
+and Clinical Neurophysiol</i>ogy 83: 171–172, 1992.</p>
+
+<p class="TimesNewRoman">Perrin, F, Bertrand O and Pernier J. Scalp current
+density mapping: value and estimation from potential data. <i>IEEE Transactions
+on Biomedical Engineering</i> 34: 283–287, 1987.</p>
+
+<p class="TimesNewRoman">Perrin F, Pernier J, Bertrand O and Echallier JF.
+Spherical spline for potential and current density mapping. <i>Electroencephalography
+and Clinical Neurophysiol</i>ogy: 72: 184–187, 1989.</p>
+
+<p class="TimesNewRoman">Sporns O. <i>Networks of the Brain</i>, The MIT
+Press, 2010.</p>
+
+<p class="TimesNewRoman">Srinivasan R, Nunez PL, Tucker DM, Silberstein RB
+and Cadusch PJ.&nbsp; Spatial sampling and filtering of EEG with spline
+Laplacians to estimate cortical potentials. <i>Brain Topography</i> 8: 355-366,
+1996. &nbsp;</p>
+
+<p class="TimesNewRoman">Srinivasan R, Nunez PL and Silberstein RB. Spatial
+filtering and neocortical dynamics: estimates of EEG coherence. <i>IEEE
+Transactions on Biomedical Engineering</i> 45: 814-826, 1998.</p>
+
+<p class="TimesNewRoman">van Dijk BW and Spekreijse H. The 2 dim-Laplacian
+field is not suitable to localize sources of EEG activity. <i>Vision Research</i>
+32: 261-262, 1992.</p></td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+    <td width="800" height="40" bgcolor="#FAF9F6">&nbsp;</td>
+    <td bgcolor="#FAF9F6">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
